@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-parser');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
 const fs = require('fs');
@@ -9,8 +8,8 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(cors());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json({ charset: 'utf-8' }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const apiLimiter = rateLimit({
@@ -24,16 +23,18 @@ const DB_FILE = path.join(__dirname, 'data', 'appointments.json');
 function ensureDb() {
   const dir = path.join(__dirname, 'data');
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-  if (!fs.existsSync(DB_FILE)) fs.writeFileSync(DB_FILE, JSON.stringify({ appointments: [], contacts: [] }, null, 2));
+  if (!fs.existsSync(DB_FILE)) {
+    fs.writeFileSync(DB_FILE, JSON.stringify({ appointments: [], contacts: [] }, null, 2), 'utf8');
+  }
 }
 
 function readDb() {
   ensureDb();
-  return JSON.parse(fs.readFileSync(DB_FILE, 'utf-8'));
+  return JSON.parse(fs.readFileSync(DB_FILE, 'utf8'));
 }
 
 function writeDb(data) {
-  fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
+  fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2), 'utf8');
 }
 
 // Appointment booking
@@ -65,7 +66,7 @@ app.post('/api/appointments', apiLimiter, (req, res) => {
   db.appointments.push(appointment);
   writeDb(db);
 
-  console.log(`[APPOINTMENT] New booking: ${name} — ${service} on ${date} at ${time}`);
+  console.log(`[APPOINTMENT] ${name} — ${service} on ${date} at ${time}`);
 
   res.json({
     success: true,
@@ -95,12 +96,10 @@ app.post('/api/contact', apiLimiter, (req, res) => {
   db.contacts.push(contact);
   writeDb(db);
 
-  console.log(`[CONTACT] Message from: ${name} (${phone})`);
-
   res.json({ success: true, message: 'Сообщение отправлено! Мы свяжемся с вами в ближайшее время.' });
 });
 
-// Get available time slots for a date
+// Available time slots
 app.get('/api/slots', (req, res) => {
   const { date } = req.query;
   if (!date) return res.status(400).json({ success: false, message: 'Укажите дату.' });
@@ -117,18 +116,21 @@ app.get('/api/slots', (req, res) => {
     '18:00','18:30','19:00','19:30','20:00','20:30'
   ];
 
-  const available = allSlots.map(slot => ({
+  const slots = allSlots.map(slot => ({
     time: slot,
     available: !booked.includes(slot)
   }));
 
-  res.json({ success: true, slots: available });
+  res.json({ success: true, slots });
 });
 
-// Admin: list appointments (simple, no auth for demo)
+// Admin: list appointments
 app.get('/api/admin/appointments', (req, res) => {
   const db = readDb();
-  res.json({ success: true, data: db.appointments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)) });
+  res.json({
+    success: true,
+    data: db.appointments.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+  });
 });
 
 // Serve frontend
@@ -137,6 +139,6 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`\n🦷 Kometa Dent server running at http://localhost:${PORT}\n`);
   ensureDb();
+  console.log(`\n🦷 Kometa Dent running at http://localhost:${PORT}\n`);
 });
