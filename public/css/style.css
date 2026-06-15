@@ -551,7 +551,8 @@ section { padding: 100px 0; }
   background: linear-gradient(135deg, var(--navy-2) 0%, var(--navy-3) 100%);
 }
 
-.about__photo-placeholder p { color: rgba(255,255,255,0.6); line-height: 1.5; }
+.about__photo-placeholder p { color: rgba(255,255,255,0.7); line-height: 1.5; font-size: 15px; font-weight: 600; letter-spacing: 0.05em; margin-top: 8px; }
+.about__photo-placeholder span { color: rgba(255,255,255,0.35); font-size: 12px; margin-top: 4px; }
 
 .about__badge {
   position: absolute;
