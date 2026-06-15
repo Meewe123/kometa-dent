@@ -3,6 +3,24 @@ const cors = require('cors');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
 const fs = require('fs');
+const https = require('https');
+
+const TG_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const TG_CHAT  = process.env.TELEGRAM_CHAT_ID;
+
+function sendTelegram(text) {
+  if (!TG_TOKEN || !TG_CHAT) return;
+  const body = JSON.stringify({ chat_id: TG_CHAT, text, parse_mode: 'HTML' });
+  const req = https.request({
+    hostname: 'api.telegram.org',
+    path: `/bot${TG_TOKEN}/sendMessage`,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Content-Length': Buffer.byteLength(body) }
+  });
+  req.on('error', () => {});
+  req.write(body);
+  req.end();
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -67,6 +85,16 @@ app.post('/api/appointments', apiLimiter, (req, res) => {
   writeDb(db);
 
   console.log(`[APPOINTMENT] ${name} — ${service} on ${date} at ${time}`);
+
+  sendTelegram(
+    `🦷 <b>Новая запись!</b>\n\n` +
+    `👤 <b>Имя:</b> ${appointment.name}\n` +
+    `📞 <b>Телефон:</b> ${appointment.phone}\n` +
+    `🔧 <b>Услуга:</b> ${appointment.service}\n` +
+    `📅 <b>Дата:</b> ${appointment.date} в ${appointment.time}\n` +
+    (appointment.message ? `💬 <b>Комментарий:</b> ${appointment.message}\n` : '') +
+    `\n⏰ ${new Date().toLocaleString('ru-RU', { timeZone: 'Asia/Tashkent' })}`
+  );
 
   res.json({
     success: true,

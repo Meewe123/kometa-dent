@@ -1121,6 +1121,51 @@ a.booking__contact-item:hover { color: var(--gold); }
   transform: none;
 }
 
+/* ── LANG SWITCH ── */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: 8px;
+}
+
+.lang-sep {
+  color: rgba(255,255,255,0.2);
+  font-size: 12px;
+}
+
+.lang-btn {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.5);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 9px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lang-btn:hover {
+  border-color: rgba(201,168,76,0.5);
+  color: var(--gold);
+}
+
+.lang-btn.active {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--navy);
+}
+
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lang-switch--mobile { display: none; }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 1024px) {
   .about__inner { grid-template-columns: 1fr; gap: 48px; }
@@ -1138,6 +1183,8 @@ a.booking__contact-item:hover { color: var(--gold); }
 
   .nav__links { display: none; }
   .nav__burger { display: flex; }
+  .lang-switch { display: none; }
+  .lang-switch--mobile { display: flex; }
 
   .nav__links.open {
     display: flex;
