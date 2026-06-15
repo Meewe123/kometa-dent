@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Kometa Dent — Стоматологическая клиника в Ташкенте. Профессиональное лечение зубов, имплантация, отбеливание. Работаем круглосуточно." />
+  <meta property="og:title" content="Kometa Dent — Стоматология мирового уровня в Ташкенте" />
+  <meta property="og:description" content="Современные технологии, опытные врачи, безболезненное лечение" />
+  <title>Kometa Dent — Стоматология</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div class="loader" id="loader">
+    <div class="loader__inner">
+      <svg class="loader__comet" viewBox="0 0 60 60" fill="none">
+        <circle cx="30" cy="30" r="10" fill="#C9A84C"/>
+        <ellipse cx="16" cy="30" rx="14" ry="4" fill="url(#cometTail)" opacity="0.6"/>
+        <defs>
+          <linearGradient id="cometTail" x1="0" y1="0" x2="30" y2="0">
+            <stop offset="0%" stop-color="#C9A84C" stop-opacity="0"/>
+            <stop offset="100%" stop-color="#C9A84C" stop-opacity="0.8"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="loader__text">KOMETA DENT</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#hero" class="nav__logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <circle cx="20" cy="16" r="8" fill="#C9A84C"/>
+          <ellipse cx="8" cy="16" rx="8" ry="3" fill="url(#navTail)" opacity="0.7"/>
+          <defs>
+            <linearGradient id="navTail" x1="0" y1="0" x2="16" y2="0">
+              <stop offset="0%" stop-color="#C9A84C" stop-opacity="0"/>
+              <stop offset="100%" stop-color="#C9A84C"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span>KOMETA <strong>DENT</strong></span>
+      </a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="#services" class="nav__link">Услуги</a>
+        <a href="#about" class="nav__link">О клинике</a>
+        <a href="#team" class="nav__link">Врачи</a>
+        <a href="#reviews" class="nav__link">Отзывы</a>
+        <a href="#contact" class="nav__link">Контакты</a>
+        <a href="#booking" class="nav__link nav__link--cta">Записаться</a>
+      </nav>
+
+      <button class="nav__burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <canvas class="hero__canvas" id="starsCanvas"></canvas>
+      <div class="hero__overlay"></div>
+      <div class="container hero__content">
+        <p class="hero__eyebrow reveal">Ташкент · Работаем круглосуточно</p>
+        <h1 class="hero__title reveal">
+          Улыбка,<br/>
+          <em>достойная звёзд</em>
+        </h1>
+        <p class="hero__subtitle reveal">Стоматология мирового уровня в сердце Ташкента. Безболезненное лечение, современные технологии, индивидуальный подход.</p>
+        <div class="hero__actions reveal">
+          <a href="#booking" class="btn btn--primary">Записаться на приём</a>
+          <a href="tel:+998971255551" class="btn btn--ghost">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg>
+            +998 97 125 55 51
+          </a>
+        </div>
+        <div class="hero__stats reveal">
+          <div class="hero__stat">
+            <span class="hero__stat-num" data-target="5000">0</span>+
+            <span class="hero__stat-label">довольных пациентов</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-num" data-target="12">0</span>+
+            <span class="hero__stat-label">лет опыта</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-num" data-target="24">0</span>/7
+            <span class="hero__stat-label">доступность</span>
+          </div>
+        </div>
+      </div>
+      <a href="#services" class="hero__scroll" aria-label="Вниз">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </a>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Что мы лечим</p>
+          <h2 class="section-title">Полный спектр<br/><em>стоматологических услуг</em></h2>
+        </div>
+        <div class="services__grid">
+
+          <article class="service-card reveal" data-delay="0">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 64 64" fill="none"><path d="M32 8C20 8 12 18 12 28c0 12 8 18 12 28h16c4-10 12-16 12-28C52 18 44 8 32 8z" stroke="#C9A84C" stroke-width="2" fill="none"/><path d="M26 36c0 4 2 8 6 8s6-4 6-8" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Лечение кариеса</h3>
+            <p>Современные материалы и технологии. Безболезненное удаление кариеса под местной анестезией.</p>
+            <span class="service-card__price">от 150 000 сум</span>
+          </article>
+
+          <article class="service-card reveal" data-delay="100">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 64 64" fill="none"><rect x="20" y="12" width="24" height="32" rx="4" stroke="#C9A84C" stroke-width="2"/><line x1="32" y1="44" x2="32" y2="54" stroke="#C9A84C" stroke-width="2"/><ellipse cx="32" cy="56" rx="6" ry="2" stroke="#C9A84C" stroke-width="2"/></svg>
+            </div>
+            <h3>Имплантация</h3>
+            <p>Восстановление утраченных зубов. Пожизненная гарантия на имплантаты ведущих мировых брендов.</p>
+            <span class="service-card__price">от 2 500 000 сум</span>
+          </article>
+
+          <article class="service-card reveal" data-delay="200">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 64 64" fill="none"><path d="M16 32 L32 16 L48 32" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/><rect x="22" y="32" width="20" height="16" rx="2" stroke="#C9A84C" stroke-width="2"/><path d="M28 48 L28 56 M36 48 L36 56" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Отбеливание</h3>
+            <p>Профессиональное отбеливание Zoom 4. Результат на 6–8 тонов светлее за 1 визит.</p>
+            <span class="service-card__price">от 800 000 сум</span>
+          </article>
+
+          <article class="service-card reveal" data-delay="300">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 64 64" fill="none"><path d="M20 20 Q32 10 44 20 L44 44 Q32 54 20 44 Z" stroke="#C9A84C" stroke-width="2" fill="none"/><path d="M26 32 L30 36 L38 28" stroke="#C9A84C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>Ортодонтия</h3>
+            <p>Брекеты, элайнеры Invisalign, ретейнеры. Идеальный прикус в любом возрасте.</p>
+            <span class="service-card__price">от 1 200 000 сум</span>
+          </article>
+
+          <article class="service-card reveal" data-delay="400">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="28" r="14" stroke="#C9A84C" stroke-width="2"/><path d="M24 28 Q32 20 40 28 Q32 36 24 28 Z" fill="#C9A84C" opacity="0.3"/><line x1="32" y1="42" x2="32" y2="52" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Виниры и коронки</h3>
+            <p>Керамические и циркониевые реставрации. Эстетика голливудской улыбки.</p>
+            <span class="service-card__price">от 1 500 000 сум</span>
+          </article>
+
+          <article class="service-card reveal" data-delay="500">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 64 64" fill="none"><path d="M12 20 L32 8 L52 20 L52 44 L32 56 L12 44 Z" stroke="#C9A84C" stroke-width="2" fill="none"/><circle cx="32" cy="32" r="8" stroke="#C9A84C" stroke-width="2"/></svg>
+            </div>
+            <h3>Детская стоматология</h3>
+            <p>Игровой подход и минимальный стресс. Лечим детей с 2 лет в комфортной атмосфере.</p>
+            <span class="service-card__price">от 100 000 сум</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="container about__inner">
+        <div class="about__visual reveal">
+          <div class="about__clinic-photo">
+            <div class="about__photo-frame">
+              <img src="/assets/clinic.jpg" alt="Интерьер Kometa Dent" class="about__img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'" />
+              <div class="about__photo-placeholder">
+                <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><path d="M8 56V20L32 8l24 12v36H8z" stroke="#C9A84C" stroke-width="2" fill="none"/><rect x="24" y="36" width="16" height="20" stroke="#C9A84C" stroke-width="2"/><rect x="14" y="24" width="8" height="8" stroke="#C9A84C" stroke-width="2"/><rect x="42" y="24" width="8" height="8" stroke="#C9A84C" stroke-width="2"/></svg>
+                <p>Kometa Dent<br/>Ташкент</p>
+              </div>
+            </div>
+            <div class="about__badge">
+              <span class="about__badge-num">4.5</span>
+              <div>
+                <div class="stars">★★★★½</div>
+                <small>Google Reviews</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__content reveal">
+          <p class="section-eyebrow">О клинике</p>
+          <h2 class="section-title">Стоматология,<br/><em>где вам рады всегда</em></h2>
+          <p class="about__text">Kometa Dent — это современная стоматологическая клиника в центре Ташкента, которая работает <strong>круглосуточно</strong>. Мы объединили мировые стандарты лечения с теплотой и вниманием к каждому пациенту.</p>
+          <p class="about__text">Наши врачи проходят обучение в ведущих клиниках Европы и Азии. Оборудование — последнего поколения: цифровой рентген, лазер, CAD/CAM технологии для изготовления реставраций за 1 визит.</p>
+
+          <ul class="about__features">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Работаем 24/7, включая праздники
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Гарантия на все виды лечения
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Стерильность по стандарту ISO
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Современная анестезия — лечение без боли
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Удобная парковка и центральное расположение
+            </li>
+          </ul>
+
+          <a href="#booking" class="btn btn--primary">Записаться на консультацию</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Как это работает</p>
+          <h2 class="section-title">4 шага к<br/><em>идеальной улыбке</em></h2>
+        </div>
+        <div class="process__steps">
+          <div class="process__step reveal" data-delay="0">
+            <div class="process__num">01</div>
+            <h3>Запись онлайн</h3>
+            <p>Выберите удобное время и услугу прямо на сайте или позвоните нам</p>
+          </div>
+          <div class="process__connector"></div>
+          <div class="process__step reveal" data-delay="150">
+            <div class="process__num">02</div>
+            <h3>Осмотр и диагностика</h3>
+            <p>Цифровой рентген, 3D-томография, полное обследование полости рта</p>
+          </div>
+          <div class="process__connector"></div>
+          <div class="process__step reveal" data-delay="300">
+            <div class="process__num">03</div>
+            <h3>Составление плана</h3>
+            <p>Индивидуальный план лечения с прозрачными ценами и сроками</p>
+          </div>
+          <div class="process__connector"></div>
+          <div class="process__step reveal" data-delay="450">
+            <div class="process__num">04</div>
+            <h3>Лечение и результат</h3>
+            <p>Безболезненное лечение, долгосрочная гарантия и сияющая улыбка</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team" id="team">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Наша команда</p>
+          <h2 class="section-title">Врачи, которым<br/><em>можно доверять</em></h2>
+        </div>
+        <div class="team__grid">
+
+          <article class="doctor-card reveal" data-delay="0">
+            <div class="doctor-card__photo">
+              <div class="doctor-card__placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              </div>
+              <div class="doctor-card__badge">Главный врач</div>
+            </div>
+            <div class="doctor-card__info">
+              <h3>Акрам Рашидов</h3>
+              <p class="doctor-card__spec">Имплантолог · Хирург</p>
+              <p class="doctor-card__exp">14 лет опыта · Обучение в Германии</p>
+            </div>
+          </article>
+
+          <article class="doctor-card reveal" data-delay="150">
+            <div class="doctor-card__photo">
+              <div class="doctor-card__placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              </div>
+              <div class="doctor-card__badge">Ортодонт</div>
+            </div>
+            <div class="doctor-card__info">
+              <h3>Малика Юсупова</h3>
+              <p class="doctor-card__spec">Ортодонт · Invisalign Provider</p>
+              <p class="doctor-card__exp">10 лет опыта · Сертификат Швейцария</p>
+            </div>
+          </article>
+
+          <article class="doctor-card reveal" data-delay="300">
+            <div class="doctor-card__photo">
+              <div class="doctor-card__placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              </div>
+              <div class="doctor-card__badge">Терапевт</div>
+            </div>
+            <div class="doctor-card__info">
+              <h3>Сардор Камилов</h3>
+              <p class="doctor-card__spec">Стоматолог-терапевт · Эстетика</p>
+              <p class="doctor-card__exp">8 лет опыта · Мастер венирования</p>
+            </div>
+          </article>
+
+          <article class="doctor-card reveal" data-delay="450">
+            <div class="doctor-card__photo">
+              <div class="doctor-card__placeholder">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+              </div>
+              <div class="doctor-card__badge">Детский врач</div>
+            </div>
+            <div class="doctor-card__info">
+              <h3>Нилуфар Исмоилова</h3>
+              <p class="doctor-card__spec">Детский стоматолог</p>
+              <p class="doctor-card__exp">7 лет опыта · Специалист по детям</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="reviews" id="reviews">
+      <div class="container">
+        <div class="section-header reveal">
+          <p class="section-eyebrow">Отзывы пациентов</p>
+          <h2 class="section-title">Они уже<br/><em>улыбаются с нами</em></h2>
+        </div>
+
+        <div class="reviews__rating reveal">
+          <div class="reviews__big-num">4.5</div>
+          <div class="reviews__stars-big">★★★★½</div>
+          <p>Рейтинг на Google Maps</p>
+        </div>
+
+        <div class="reviews__grid">
+          <article class="review-card reveal" data-delay="0">
+            <div class="review-card__header">
+              <div class="review-card__avatar">ДА</div>
+              <div>
+                <strong>Dilnoza Azizova</strong>
+                <div class="review-card__stars">★★★★★</div>
+              </div>
+              <span class="review-card__time">4 месяца назад</span>
+            </div>
+            <p>"Отличная клиника! Сделала имплантацию, очень довольна результатом. Врачи профессиональные и внимательные. Рекомендую всем!"</p>
+          </article>
+
+          <article class="review-card reveal" data-delay="150">
+            <div class="review-card__header">
+              <div class="review-card__avatar">АМ</div>
+              <div>
+                <strong>Алишер Мамаразаков</strong>
+                <div class="review-card__stars">★★★★☆</div>
+              </div>
+              <span class="review-card__time">7 месяцев назад</span>
+            </div>
+            <p>"Хорошая клиника в центре города. Лечил кариес — безболезненно и быстро. Персонал очень дружелюбный, объяснили всё понятно."</p>
+          </article>
+
+          <article class="review-card reveal" data-delay="300">
+            <div class="review-card__header">
+              <div class="review-card__avatar">ЗК</div>
+              <div>
+                <strong>Зарина Каримова</strong>
+                <div class="review-card__stars">★★★★★</div>
+              </div>
+              <span class="review-card__time">2 месяца назад</span>
+            </div>
+            <p>"Обратилась ночью с острой болью — приняли сразу! Это большой плюс, что работают 24/7. Доктор очень грамотный, боль сняли быстро."</p>
+          </article>
+        </div>
+
+        <div class="reviews__cta reveal">
+          <a href="https://maps.google.com" target="_blank" rel="noopener" class="btn btn--outline">Оставить отзыв на Google</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="booking" id="booking">
+      <div class="container booking__inner">
+        <div class="booking__info reveal">
+          <p class="section-eyebrow">Запись</p>
+          <h2 class="section-title">Запишитесь<br/><em>прямо сейчас</em></h2>
+          <p>Заполните форму и мы перезвоним вам в течение 15 минут для подтверждения записи.</p>
+
+          <div class="booking__contacts">
+            <a href="tel:+998971255551" class="booking__contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg>
+              +998 97 125 55 51
+            </a>
+            <div class="booking__contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Круглосуточно, 24/7
+            </div>
+            <div class="booking__contact-item">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              ул. Махтумкули 105, Ташкент
+            </div>
+          </div>
+        </div>
+
+        <div class="booking__form-wrap reveal">
+          <form class="booking-form" id="bookingForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bName">Ваше имя *</label>
+                <input type="text" id="bName" name="name" placeholder="Имя Фамилия" required />
+              </div>
+              <div class="form-group">
+                <label for="bPhone">Телефон *</label>
+                <input type="tel" id="bPhone" name="phone" placeholder="+998 XX XXX XX XX" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="bService">Услуга *</label>
+              <select id="bService" name="service" required>
+                <option value="">Выберите услугу</option>
+                <option>Лечение кариеса</option>
+                <option>Имплантация</option>
+                <option>Отбеливание зубов</option>
+                <option>Ортодонтия / Брекеты</option>
+                <option>Виниры и коронки</option>
+                <option>Детская стоматология</option>
+                <option>Удаление зуба</option>
+                <option>Чистка и профилактика</option>
+                <option>Протезирование</option>
+                <option>Консультация</option>
+                <option>Экстренная помощь</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="bDate">Дата *</label>
+                <input type="date" id="bDate" name="date" required />
+              </div>
+              <div class="form-group">
+                <label for="bTime">Время *</label>
+                <select id="bTime" name="time" required>
+                  <option value="">Выберите время</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="bMessage">Комментарий</label>
+              <textarea id="bMessage" name="message" rows="3" placeholder="Дополнительная информация, пожелания..."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn--primary btn--full" id="bookingSubmit">
+              <span class="btn-text">Записаться на приём</span>
+              <svg class="btn-spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </button>
+
+            <div class="form-message" id="bookingMessage"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAP & CONTACT -->
+    <section class="contact" id="contact">
+      <div class="container contact__inner">
+        <div class="contact__info reveal">
+          <p class="section-eyebrow">Контакты</p>
+          <h2 class="section-title">Найдите нас</h2>
+
+          <div class="contact__details">
+            <div class="contact__detail">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <div>
+                <strong>Адрес</strong>
+                <p>ул. Махтумкули 105<br/>100123, Ташкент, Узбекистан</p>
+              </div>
+            </div>
+            <div class="contact__detail">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg>
+              <div>
+                <strong>Телефон</strong>
+                <p><a href="tel:+998971255551">+998 97 125 55 51</a></p>
+              </div>
+            </div>
+            <div class="contact__detail">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <div>
+                <strong>Режим работы</strong>
+                <p>Круглосуточно, без выходных</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact__social">
+            <a href="https://t.me/kometadent" class="social-btn" target="_blank" rel="noopener" aria-label="Telegram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.5l-2.95-.924c-.64-.204-.658-.64.135-.954l11.566-4.458c.537-.194 1.006.131.973.957z"/></svg>
+            </a>
+            <a href="https://instagram.com/kometadent" class="social-btn" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact__map reveal">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.384!2d69.2401!3d41.2995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDE3JzU4LjIiTiA2OcKwMTQnMjQuNCJF!5e0!3m2!1sru!2s!4v1234567890"
+            width="100%"
+            height="400"
+            style="border:0; border-radius: 16px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Kometa Dent на карте">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#hero" class="nav__logo">
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none">
+            <circle cx="20" cy="16" r="8" fill="#C9A84C"/>
+            <ellipse cx="8" cy="16" rx="8" ry="3" fill="url(#footerTail)" opacity="0.7"/>
+            <defs>
+              <linearGradient id="footerTail" x1="0" y1="0" x2="16" y2="0">
+                <stop offset="0%" stop-color="#C9A84C" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#C9A84C"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span>KOMETA <strong>DENT</strong></span>
+        </a>
+        <p>Стоматология мирового уровня<br/>в сердце Ташкента</p>
+      </div>
+
+      <div class="footer__links">
+        <h4>Услуги</h4>
+        <a href="#services">Лечение кариеса</a>
+        <a href="#services">Имплантация</a>
+        <a href="#services">Отбеливание</a>
+        <a href="#services">Ортодонтия</a>
+        <a href="#services">Виниры</a>
+      </div>
+
+      <div class="footer__links">
+        <h4>Клиника</h4>
+        <a href="#about">О нас</a>
+        <a href="#team">Врачи</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contact">Контакты</a>
+        <a href="#booking">Записаться</a>
+      </div>
+
+      <div class="footer__contact">
+        <h4>Связь</h4>
+        <a href="tel:+998971255551">+998 97 125 55 51</a>
+        <p>ул. Махтумкули 105<br/>Ташкент, Узбекистан</p>
+        <p>Работаем 24/7</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2024 Kometa Dent. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <!-- FLOATING CALL BUTTON -->
+  <a href="tel:+998971255551" class="fab" aria-label="Позвонить">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.6a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17z"/></svg>
+  </a>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
