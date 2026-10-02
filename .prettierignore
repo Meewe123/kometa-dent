@@ -5,3 +5,5 @@ public/fonts/
 *.png
 # HTML templates use {{ }} placeholders inside tags, which the HTML parser rejects.
 views/
+test-results/
+playwright-report/

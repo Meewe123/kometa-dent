@@ -19,7 +19,8 @@ export default [
     },
   },
   {
-    files: ['public/js/**/*.js'],
-    languageOptions: { globals: globals.browser },
+    // Browser code, and e2e tests whose page.evaluate() callbacks run in the browser.
+    files: ['public/js/**/*.js', 'e2e/**/*.js'],
+    languageOptions: { globals: { ...globals.browser } },
   },
 ];

@@ -7,13 +7,14 @@
   "type": "module",
   "main": "server.js",
   "engines": {
-    "node": ">=20.11"
+    "node": ">=22.12"
   },
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
     "demo": "node server.js --demo",
     "test": "node --test test/*.test.js",
+    "test:e2e": "playwright test",
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -26,7 +27,9 @@
     "helmet": "^8.3.0"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.56.1",
     "eslint": "^10.11.0",
     "globals": "^17.13.0",
     "prettier": "^3.9.9"
