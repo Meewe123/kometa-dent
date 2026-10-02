@@ -24,11 +24,19 @@ export function loadConfig(env = process.env, argv = process.argv) {
   const adminTokenTooShort =
     !demo && adminToken.length > 0 && adminToken.length < MIN_ADMIN_TOKEN_LENGTH;
 
+  // Render sets RENDER_EXTERNAL_URL itself, so a demo deploy needs no extra setup.
+  const siteUrl = (env.SITE_URL || env.RENDER_EXTERNAL_URL || `http://localhost:${port}`).replace(
+    /\/+$/,
+    '',
+  );
+
   return {
     port,
-    siteUrl: (env.SITE_URL || `http://localhost:${port}`).replace(/\/+$/, ''),
+    siteUrl,
+    // HTTPS-only headers (HSTS, upgrade-insecure-requests) are sent only for an
+    // HTTPS address, so the same build still works over plain HTTP locally.
+    https: siteUrl.startsWith('https://'),
     demo,
-    production: env.NODE_ENV === 'production',
     dataFile: demo ? null : path.resolve(env.DATA_DIR || 'data', 'appointments.json'),
     // An admin token that is too short is treated as "not set": the panel stays locked.
     adminToken: adminTokenTooShort ? '' : adminToken,

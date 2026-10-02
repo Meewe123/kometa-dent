@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { after, before, describe, it } from 'node:test';
 
+import { loadConfig } from '../src/config.js';
 import { ADMIN_TOKEN, booking, startApp } from './helpers.js';
 
 const auth = { Authorization: `Bearer ${ADMIN_TOKEN}` };
@@ -170,5 +171,35 @@ describe('HTTP basics', () => {
   it('returns 404 for missing files instead of the home page', async () => {
     const res = await app.request('/assets/clinic.jpg');
     assert.equal(res.status, 404);
+  });
+});
+
+describe('config', () => {
+  it('sends HTTPS-only headers only for an HTTPS site', async () => {
+    const plain = await startApp({ env: { SITE_URL: 'http://192.168.1.10:3000' } });
+    const res = await plain.request('/');
+    assert.equal(res.headers.get('strict-transport-security'), null);
+    assert.ok(!res.headers.get('content-security-policy').includes('upgrade-insecure-requests'));
+    await plain.close();
+
+    const secure = await startApp({ env: { SITE_URL: 'https://kometa.example' } });
+    const res2 = await secure.request('/');
+    assert.ok(res2.headers.get('strict-transport-security'));
+    assert.ok(res2.headers.get('content-security-policy').includes('upgrade-insecure-requests'));
+    await secure.close();
+  });
+
+  it('uses the address Render provides when SITE_URL is not set', () => {
+    const config = loadConfig({ RENDER_EXTERNAL_URL: 'https://kometa-dent.onrender.com/' }, []);
+    assert.equal(config.siteUrl, 'https://kometa-dent.onrender.com');
+    assert.equal(config.https, true);
+  });
+
+  it('turns on demo mode from the command line flag', () => {
+    const config = loadConfig({}, ['node', 'server.js', '--demo']);
+    assert.equal(config.demo, true);
+    assert.equal(config.adminToken, 'demo');
+    assert.equal(config.dataFile, null);
+    assert.equal(config.telegram, null);
   });
 });

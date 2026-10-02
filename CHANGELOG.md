@@ -33,7 +33,7 @@
 - Живые часы по Ташкенту в первом экране.
 - Страница 404, `robots.txt`, `sitemap.xml`, `hreflang`, Open Graph, разметка schema.org.
 - Тёмная тема по системной настройке.
-- Тесты: 58 юнит- и API-тестов, 17 браузерных (Playwright) с проверкой доступности (axe).
+- Тесты: 61 юнит- и API-тест, 17 браузерных (Playwright) с проверкой доступности (axe).
 - GitHub Actions, ESLint, Prettier, Dependabot, Dockerfile, конфигурация Render.
 
 ### Изменено

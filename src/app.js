@@ -64,10 +64,10 @@ export function createApp({
           baseUri: ["'self'"],
           formAction: ["'self'"],
           frameAncestors: ["'none'"],
-          ...(config.production ? { upgradeInsecureRequests: [] } : {}),
+          ...(config.https ? { upgradeInsecureRequests: [] } : {}),
         },
       },
-      strictTransportSecurity: config.production,
+      strictTransportSecurity: config.https,
     }),
   );
   app.use(compression());

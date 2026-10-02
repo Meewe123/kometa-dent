@@ -20,5 +20,4 @@ services:
         value: 'true'
       - key: TRUST_PROXY
         value: '1'
-      - key: SITE_URL
-        sync: false
+      # SITE_URL is optional here: the app falls back to RENDER_EXTERNAL_URL.
