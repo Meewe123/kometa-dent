@@ -92,6 +92,7 @@ function serviceOptions(lang) {
 }
 
 function structuredData(config) {
+  const prices = PRICED_SERVICES.map((s) => s.price);
   return safeJson({
     '@context': 'https://schema.org',
     '@type': 'Dentist',
@@ -99,7 +100,7 @@ function structuredData(config) {
     url: `${config.siteUrl}/`,
     image: `${config.siteUrl}/img/og-ru.png`,
     telephone: CLINIC.phone,
-    priceRange: '100 000 – 2 500 000 UZS',
+    priceRange: `${Math.min(...prices)}–${Math.max(...prices)} UZS`,
     currenciesAccepted: 'UZS',
     address: {
       '@type': 'PostalAddress',
@@ -161,14 +162,11 @@ export function createViews({ config, rootDir }) {
   const cache = new Map();
 
   for (const lang of LANGS) {
-    const otherLang = lang === 'ru' ? 'uz' : 'ru';
     const vars = {
       lang,
       isRu: lang === 'ru',
       isUz: lang === 'uz',
-      otherLang,
       langPath: LANG_PATHS[lang],
-      otherLangPath: LANG_PATHS[otherLang],
       canonicalUrl: `${config.siteUrl}${LANG_PATHS[lang]}`,
       ruUrl: `${config.siteUrl}${LANG_PATHS.ru}`,
       uzUrl: `${config.siteUrl}${LANG_PATHS.uz}`,
