@@ -1,0 +1,9 @@
+node_modules/
+data/
+package-lock.json
+public/fonts/
+*.png
+# HTML templates use {{ }} placeholders inside tags, which the HTML parser rejects.
+views/
+test-results/
+playwright-report/

@@ -1,0 +1,49 @@
+    <a class="skip-link" href="#main">{{t a11y.skip}}</a>
+    {{#if demo}}
+    <p class="demo-bar">
+      {{t demo.banner}} <a class="link" href="/admin">{{t demo.admin}}</a>
+    </p>
+    {{/if}}
+    <header class="site-header" data-header>
+      <div class="container site-header__inner">
+        <a class="brand" href="{{langPath}}" aria-label="{{t a11y.home}}">
+          {{> brand-mark}}<span class="brand__name">Kometa Dent</span>
+        </a>
+        <nav class="site-nav" aria-label="{{t a11y.main}}">
+          <ul class="site-nav__list" role="list">
+            <li><a class="site-nav__link" href="{{langPath}}#prices">{{t nav.prices}}</a></li>
+            <li><a class="site-nav__link" href="{{langPath}}#doctors">{{t nav.doctors}}</a></li>
+            <li><a class="site-nav__link" href="{{langPath}}#reviews">{{t nav.reviews}}</a></li>
+            <li><a class="site-nav__link" href="{{langPath}}#contacts">{{t nav.contacts}}</a></li>
+          </ul>
+        </nav>
+        <div class="site-header__actions">
+          {{> lang-switch}}
+          <a class="header-phone num" href="tel:{{phone}}">{{phoneDisplay}}</a>
+          <a class="btn btn--primary btn--small header-book" href="{{langPath}}#booking">{{t nav.book}}</a>
+          <button class="btn btn--ghost btn--small menu-button" type="button" aria-haspopup="dialog" aria-controls="menu" data-menu-open>
+            {{t nav.menu}}
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <dialog class="menu" id="menu" aria-label="{{t nav.menu}}">
+      <div class="menu__top">
+        <span class="brand" aria-hidden="true">{{> brand-mark}}<span class="brand__name">Kometa Dent</span></span>
+        <button class="btn btn--ghost btn--small" type="button" data-menu-close>{{t nav.close}}</button>
+      </div>
+      <nav aria-label="{{t a11y.main}}">
+        <ul class="menu__links" role="list">
+          <li><a href="{{langPath}}#prices">{{t nav.prices}}</a></li>
+          <li><a href="{{langPath}}#doctors">{{t nav.doctors}}</a></li>
+          <li><a href="{{langPath}}#reviews">{{t nav.reviews}}</a></li>
+          <li><a href="{{langPath}}#contacts">{{t nav.contacts}}</a></li>
+          <li><a href="{{langPath}}#booking">{{t nav.book}}</a></li>
+        </ul>
+      </nav>
+      <div class="menu__bottom">
+        <a class="menu__phone num" href="tel:{{phone}}">{{phoneDisplay}}</a>
+        {{> lang-switch}}
+      </div>
+    </dialog>

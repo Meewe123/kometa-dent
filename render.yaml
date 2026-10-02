@@ -1,0 +1,23 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+# Deploys a public demo (in-memory data, demo banner, admin token "demo").
+# For the clinic's real site set DEMO_MODE=false, ADMIN_TOKEN and Telegram
+# variables, and attach a persistent disk at /var/data (paid plans) with
+# DATA_DIR=/var/data, otherwise appointments are lost on every deploy.
+services:
+  - type: web
+    name: kometa-dent
+    runtime: node
+    plan: free
+    buildCommand: npm ci --omit=dev
+    startCommand: node server.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: '22'
+      - key: NODE_ENV
+        value: production
+      - key: DEMO_MODE
+        value: 'true'
+      - key: TRUST_PROXY
+        value: '1'
+      # SITE_URL is optional here: the app falls back to RENDER_EXTERNAL_URL.

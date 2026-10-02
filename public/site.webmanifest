@@ -1,0 +1,11 @@
+{
+  "name": "Kometa Dent",
+  "short_name": "Kometa Dent",
+  "icons": [
+    { "src": "/img/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/img/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#f4f2ec",
+  "background_color": "#f4f2ec",
+  "display": "browser"
+}

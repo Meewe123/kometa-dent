@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="{{lang}}">
+  <head>
+{{> head}}
+    <title>{{t meta.title}}</title>
+    <meta name="description" content="{{t meta.description}}" />
+    <link rel="canonical" href="{{canonicalUrl}}" />
+    <link rel="alternate" hreflang="ru" href="{{ruUrl}}" />
+    <link rel="alternate" hreflang="uz" href="{{uzUrl}}" />
+    <link rel="alternate" hreflang="x-default" href="{{ruUrl}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kometa Dent" />
+    <meta property="og:title" content="{{t meta.title}}" />
+    <meta property="og:description" content="{{t meta.description}}" />
+    <meta property="og:url" content="{{canonicalUrl}}" />
+    <meta property="og:locale" content="{{t meta.locale}}" />
+    <meta property="og:image" content="{{ogImage}}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="/css/site.css" />
+    <script type="module" src="/js/site.js"></script>
+    <script type="application/ld+json">{{{structuredData}}}</script>
+  </head>
+  <body>
+{{> header}}
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="container hero__grid">
+          <div class="hero__text">
+            <p class="kicker">{{t hero.kicker}}</p>
+            <h1 class="hero__title" id="hero-title">{{t hero.title}}</h1>
+            <p class="hero__lead">{{t hero.lead}}</p>
+            <div class="hero__actions" data-hero-actions>
+              <a class="btn btn--primary btn--large" href="#booking">{{t hero.book}}</a>
+              <a class="btn btn--secondary btn--large" href="tel:{{phone}}">
+                {{t nav.call}}<span class="num hero__phone">{{phoneDisplay}}</span>
+              </a>
+            </div>
+          </div>
+
+          <aside class="board" aria-labelledby="board-label">
+            <p class="board__label" id="board-label">{{t status.label}}</p>
+            <p class="board__clock num"><time data-clock>24/7</time></p>
+            <p class="board__open">
+              <span class="board__dot" aria-hidden="true"></span>
+              <span><strong>{{t status.open}}</strong> — {{t status.openNote}}</span>
+            </p>
+            <dl class="board__hours">
+              <div>
+                <dt>{{t status.urgent}}</dt>
+                <dd>{{t status.urgentWhen}}</dd>
+              </div>
+              <div>
+                <dt>{{t status.planned}}</dt>
+                <dd>{{t status.plannedWhen}}</dd>
+              </div>
+            </dl>
+            <p class="board__address">{{t contacts.address.value}}</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section" id="prices" aria-labelledby="prices-title">
+        <div class="container section__grid">
+          <header class="section__head">
+            <h2 class="section__title" id="prices-title">{{t prices.title}}</h2>
+            <p class="section__note">{{t prices.note}}</p>
+          </header>
+          <ul class="price-list" role="list">{{{priceRows}}}
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="container section__grid">
+          <header class="section__head">
+            <h2 class="section__title" id="about-title">{{t about.title}}</h2>
+          </header>
+          <div class="about">
+            <div class="prose about__text">
+              <p>{{t about.p1}}</p>
+              <p>{{t about.p2}}</p>
+            </div>
+            <dl class="facts">
+              <div class="fact">
+                <dt class="fact__label">{{t about.fact1.label}}</dt>
+                <dd class="fact__value num">{{t about.fact1.value}}</dd>
+              </div>
+              <div class="fact">
+                <dt class="fact__label">{{t about.fact2.label}}</dt>
+                <dd class="fact__value num">{{t about.fact2.value}}</dd>
+              </div>
+              <div class="fact">
+                <dt class="fact__label">{{t about.fact3.label}}</dt>
+                <dd class="fact__value num">{{t about.fact3.value}}</dd>
+              </div>
+              <div class="fact">
+                <dt class="fact__label">{{t about.fact4.label}}</dt>
+                <dd class="fact__value num">{{t about.fact4.value}}</dd>
+              </div>
+            </dl>
+            <ul class="dash-list" role="list">
+              <li>{{t about.f1}}</li>
+              <li>{{t about.f2}}</li>
+              <li>{{t about.f3}}</li>
+              <li>{{t about.f4}}</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="doctors" aria-labelledby="doctors-title">
+        <div class="container section__grid">
+          <header class="section__head">
+            <h2 class="section__title" id="doctors-title">{{t doctors.title}}</h2>
+            <p class="section__note">{{t doctors.lead}}</p>
+          </header>
+          <ul class="doctors" role="list">
+            <li class="doctor">
+              <h3 class="doctor__name">{{t d1.name}}</h3>
+              <p class="doctor__role">{{t d1.role}}</p>
+              <p class="doctor__spec">{{t d1.spec}}</p>
+              <p class="doctor__exp">{{t d1.exp}}</p>
+            </li>
+            <li class="doctor">
+              <h3 class="doctor__name">{{t d2.name}}</h3>
+              <p class="doctor__role">{{t d2.role}}</p>
+              <p class="doctor__spec">{{t d2.spec}}</p>
+              <p class="doctor__exp">{{t d2.exp}}</p>
+            </li>
+            <li class="doctor">
+              <h3 class="doctor__name">{{t d3.name}}</h3>
+              <p class="doctor__role">{{t d3.role}}</p>
+              <p class="doctor__spec">{{t d3.spec}}</p>
+              <p class="doctor__exp">{{t d3.exp}}</p>
+            </li>
+            <li class="doctor">
+              <h3 class="doctor__name">{{t d4.name}}</h3>
+              <p class="doctor__role">{{t d4.role}}</p>
+              <p class="doctor__spec">{{t d4.spec}}</p>
+              <p class="doctor__exp">{{t d4.exp}}</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" id="reviews" aria-labelledby="reviews-title">
+        <div class="container section__grid">
+          <header class="section__head">
+            <h2 class="section__title" id="reviews-title">{{t reviews.title}}</h2>
+            <p class="rating">
+              <span class="rating__value num">{{t about.fact4.value}}</span>
+              <span class="rating__label">{{t reviews.ratingLabel}}</span>
+            </p>
+            <a class="link link--external" href="{{mapGoogle}}" target="_blank" rel="noopener">
+              {{t reviews.all}}<span class="visually-hidden"> {{t a11y.newTab}}</span>
+            </a>
+          </header>
+          <div class="reviews">
+            <figure class="review">
+              <blockquote class="review__text"><p>{{t r1.text}}</p></blockquote>
+              <figcaption class="review__meta">
+                <span class="review__author">{{t r1.author}}</span>
+                <span class="review__score">{{t reviews.score5}}</span>
+              </figcaption>
+            </figure>
+            <figure class="review">
+              <blockquote class="review__text"><p>{{t r2.text}}</p></blockquote>
+              <figcaption class="review__meta">
+                <span class="review__author">{{t r2.author}}</span>
+                <span class="review__score">{{t reviews.score4}}</span>
+              </figcaption>
+            </figure>
+            <figure class="review">
+              <blockquote class="review__text"><p>{{t r3.text}}</p></blockquote>
+              <figcaption class="review__meta">
+                <span class="review__author">{{t r3.author}}</span>
+                <span class="review__score">{{t reviews.score5}}</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--booking" id="booking" aria-labelledby="booking-title">
+        <div class="container section__grid">
+          <header class="section__head">
+            <h2 class="section__title" id="booking-title">{{t booking.title}}</h2>
+            <p class="section__note">{{t booking.lead}}</p>
+            <p class="urgent">
+              {{t booking.urgent}}
+              <a class="urgent__phone num" href="tel:{{phone}}">{{phoneDisplay}}</a>
+            </p>
+            <h3 class="steps__title">{{t booking.next}}</h3>
+            <ol class="steps" role="list">
+              <li><strong>{{t booking.step1.title}}</strong> {{t booking.step1}}</li>
+              <li><strong>{{t booking.step2.title}}</strong> {{t booking.step2}}</li>
+              <li><strong>{{t booking.step3.title}}</strong> {{t booking.step3}}</li>
+              <li><strong>{{t booking.step4.title}}</strong> {{t booking.step4}}</li>
+            </ol>
+          </header>
+
+          <div class="booking">
+            <noscript>
+              <p class="notice">
+                {{t booking.noscript}} <a class="link num" href="tel:{{phone}}">{{phoneDisplay}}</a>
+              </p>
+            </noscript>
+
+            <form class="booking-form" id="booking-form" novalidate hidden data-booking>
+              <div class="field">
+                <label class="field__label" for="f-service">{{t form.service}}</label>
+                <select class="input" id="f-service" name="service" required aria-describedby="f-service-error">
+                  <option value="">{{t form.service.ph}}</option>
+                  {{{serviceOptions}}}
+                </select>
+                <p class="field__error" id="f-service-error" data-error-for="service"></p>
+              </div>
+
+              <fieldset class="field" aria-describedby="f-date-error">
+                <legend class="field__label">{{t form.day}}</legend>
+                <div class="days" data-days></div>
+                <p class="field__error" id="f-date-error" data-error-for="date"></p>
+              </fieldset>
+
+              <fieldset class="field" aria-describedby="f-time-error">
+                <legend class="field__label">{{t form.time}}</legend>
+                <div class="slots" data-slots></div>
+                <p class="visually-hidden" aria-live="polite" data-slots-status></p>
+                <p class="field__error" id="f-time-error" data-error-for="time"></p>
+              </fieldset>
+
+              <div class="field-row">
+                <div class="field">
+                  <label class="field__label" for="f-name">{{t form.name}}</label>
+                  <input class="input" id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required placeholder="{{t form.name.ph}}" aria-describedby="f-name-error" />
+                  <p class="field__error" id="f-name-error" data-error-for="name"></p>
+                </div>
+                <div class="field">
+                  <label class="field__label" for="f-phone">{{t form.phone}}</label>
+                  <input class="input num" id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" required placeholder="+998 90 123 45 67" aria-describedby="f-phone-error" />
+                  <p class="field__error" id="f-phone-error" data-error-for="phone"></p>
+                </div>
+              </div>
+
+              <div class="field">
+                <label class="field__label" for="f-comment">
+                  {{t form.comment}} <span class="field__optional">({{t form.optional}})</span>
+                </label>
+                <textarea class="input" id="f-comment" name="comment" rows="3" maxlength="500" placeholder="{{t form.comment.ph}}" aria-describedby="f-comment-error"></textarea>
+                <p class="field__error" id="f-comment-error" data-error-for="comment"></p>
+              </div>
+
+              <div class="field field--trap" aria-hidden="true">
+                <label for="f-website">{{t form.honeypot}}</label>
+                <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <div class="form-footer">
+                <p class="form-alert" role="alert" data-form-alert></p>
+                <button class="btn btn--primary btn--large btn--block" type="submit" data-submit>
+                  {{t form.submit}}
+                </button>
+                <p class="form-footer__note">{{t form.privacy}}</p>
+              </div>
+            </form>
+
+            <div class="booking-done" data-done hidden>
+              <h3 class="booking-done__title" tabindex="-1" data-done-title></h3>
+              <p class="booking-done__text" data-done-text></p>
+              <p class="booking-done__demo" data-done-demo hidden></p>
+              <button class="btn btn--secondary" type="button" data-again></button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contacts" aria-labelledby="contacts-title">
+        <div class="container section__grid">
+          <header class="section__head">
+            <h2 class="section__title" id="contacts-title">{{t contacts.title}}</h2>
+          </header>
+          <div class="contacts">
+            <dl class="contacts__list">
+              <div>
+                <dt>{{t contacts.address}}</dt>
+                <dd>{{t contacts.address.value}}</dd>
+              </div>
+              <div>
+                <dt>{{t contacts.phone}}</dt>
+                <dd><a class="link num" href="tel:{{phone}}">{{phoneDisplay}}</a></dd>
+              </div>
+              <div>
+                <dt>{{t contacts.hours}}</dt>
+                <dd>{{t contacts.hours.value}}</dd>
+              </div>
+              <div>
+                <dt>{{t contacts.social}}</dt>
+                <dd>
+                  <a class="link link--external" href="{{telegram}}" target="_blank" rel="noopener">Telegram<span class="visually-hidden"> {{t a11y.newTab}}</span></a>,
+                  <a class="link link--external" href="{{instagram}}" target="_blank" rel="noopener">Instagram<span class="visually-hidden"> {{t a11y.newTab}}</span></a>
+                </dd>
+              </div>
+            </dl>
+            <div class="contacts__maps">
+              <p class="contacts__maps-title">{{t contacts.maps}}</p>
+              <ul class="contacts__maps-list" role="list">
+                <li><a class="link link--external" href="{{mapYandex}}" target="_blank" rel="noopener">{{t contacts.yandex}}<span class="visually-hidden"> {{t a11y.newTab}}</span></a></li>
+                <li><a class="link link--external" href="{{mapGoogle}}" target="_blank" rel="noopener">{{t contacts.google}}<span class="visually-hidden"> {{t a11y.newTab}}</span></a></li>
+                <li><a class="link link--external" href="{{map2gis}}" target="_blank" rel="noopener">{{t contacts.2gis}}<span class="visually-hidden"> {{t a11y.newTab}}</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+{{> footer}}
+
+    <div class="action-bar" data-action-bar hidden>
+      <a class="btn btn--secondary" href="tel:{{phone}}">{{t nav.call}}</a>
+      <a class="btn btn--primary" href="#booking">{{t nav.book}}</a>
+    </div>
+
+    <script type="application/json" id="client-data">{{{clientData}}}</script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="{{lang}}">
+  <head>
+{{> head}}
+    <title>{{t notfound.title}} — Kometa Dent</title>
+    <meta name="robots" content="noindex" />
+    <link rel="stylesheet" href="/css/site.css" />
+    <script type="module" src="/js/site.js"></script>
+  </head>
+  <body>
+{{> header}}
+
+    <main id="main" class="notfound">
+      <div class="container notfound__inner">
+        <p class="kicker num">404</p>
+        <h1 class="notfound__title">{{t notfound.title}}</h1>
+        <p class="notfound__text">{{t notfound.text}}</p>
+        <p><a class="btn btn--primary btn--large" href="{{langPath}}">{{t notfound.home}}</a></p>
+        <p class="notfound__urgent">
+          {{t notfound.urgent}}
+          <a class="link num" href="tel:{{phone}}">{{phoneDisplay}}</a>
+        </p>
+      </div>
+    </main>
+
+{{> footer}}
+    <script type="application/json" id="client-data">{{{clientData}}}</script>
+  </body>
+</html>

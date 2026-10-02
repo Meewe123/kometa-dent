@@ -1,20 +1,38 @@
 {
   "name": "kometa-dent",
   "version": "1.0.0",
-  "description": "Kometa Dent — World-class dental clinic website",
+  "private": true,
+  "description": "Сайт стоматологической клиники Kometa Dent (Ташкент) с онлайн-записью, уведомлениями в Telegram и панелью администратора.",
+  "license": "MIT",
+  "type": "module",
   "main": "server.js",
+  "engines": {
+    "node": ">=22.12"
+  },
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "node --watch server.js",
+    "demo": "node server.js --demo",
+    "test": "node --test test/*.test.js",
+    "test:e2e": "playwright test",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run lint && npm run format:check && npm test",
+    "images": "node scripts/render-images.mjs"
   },
   "dependencies": {
-    "express": "^4.18.2",
-    "nodemailer": "^6.9.7",
-    "cors": "^2.8.5",
-    "body-parser": "^1.20.2",
-    "express-rate-limit": "^7.1.5"
+    "compression": "^1.8.2",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0"
   },
   "devDependencies": {
-    "nodemon": "^3.0.2"
+    "@axe-core/playwright": "^4.13.0",
+    "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.56.1",
+    "eslint": "^10.11.0",
+    "globals": "^17.13.0",
+    "prettier": "^3.9.9"
   }
 }

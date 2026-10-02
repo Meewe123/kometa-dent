@@ -1,0 +1,12 @@
+node_modules
+data
+.git
+.github
+.env
+docs
+e2e
+test
+test-results
+playwright-report
+scripts
+*.md
