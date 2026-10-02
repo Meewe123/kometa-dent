@@ -1,0 +1,268 @@
+/* ==========================================================================
+   Kometa Dent — admin panel. A working tool for the front desk: dense,
+   scannable rows grouped by day, status visible at a glance.
+   ========================================================================== */
+
+.admin-container {
+  width: min(100% - 2 * var(--gutter), 72rem);
+  margin-inline: auto;
+}
+
+.admin-header {
+  border-bottom: var(--hairline);
+}
+
+.admin-header__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  min-height: var(--header-h);
+}
+
+.admin-header__title {
+  padding-left: var(--sp-4);
+  border-left: var(--hairline);
+  color: var(--c-ink-muted);
+  font-size: var(--fs-sm);
+}
+
+.admin-header .btn {
+  margin-left: auto;
+}
+
+.admin-main {
+  padding-block: var(--sp-7) var(--sp-9);
+}
+
+/* ── Login ───────────────────────────────────────────────────────────────── */
+
+.login {
+  max-width: 28rem;
+}
+
+.login > * + * {
+  margin-top: var(--sp-5);
+}
+
+.login__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  line-height: var(--lh-tight);
+}
+
+.login__text {
+  color: var(--c-ink-muted);
+}
+
+.login__form {
+  display: grid;
+  gap: var(--sp-5);
+  justify-items: start;
+}
+
+.login__form .field {
+  width: 100%;
+}
+
+/* ── Toolbar ─────────────────────────────────────────────────────────────── */
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3) var(--sp-5);
+  margin-bottom: var(--sp-6);
+}
+
+.toolbar__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  line-height: 1;
+}
+
+.toolbar__summary {
+  color: var(--c-ink-muted);
+  font-size: var(--fs-sm);
+}
+
+.toolbar .btn {
+  margin-left: auto;
+}
+
+.segmented {
+  display: inline-flex;
+  padding: 3px;
+  background: var(--c-bg-sunken);
+  border-radius: var(--radius-control);
+}
+
+.segmented__item {
+  min-height: 2.25rem;
+  padding: 0 var(--sp-4);
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--c-ink-muted);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.segmented__item:hover {
+  color: var(--c-ink);
+}
+
+.segmented__item[aria-pressed='true'] {
+  background: var(--c-surface);
+  color: var(--c-ink);
+  box-shadow: 0 0 0 1px var(--c-line);
+}
+
+/* ── Day groups and rows ─────────────────────────────────────────────────── */
+
+.appointments {
+  display: grid;
+  gap: var(--sp-7);
+}
+
+.day__title {
+  padding-bottom: var(--sp-3);
+  border-bottom: 1px solid var(--c-ink);
+  font-family: var(--font-text);
+  font-size: var(--fs-base);
+  font-weight: 600;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1.2fr) minmax(0, 1.6fr) 8rem 14.5rem;
+  align-items: start;
+  gap: var(--sp-2) var(--sp-5);
+  padding-block: var(--sp-4);
+  border-bottom: var(--hairline);
+}
+
+.row__time {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.row__name {
+  font-weight: 600;
+}
+
+.row__phone {
+  font-size: var(--fs-sm);
+}
+
+.row__comment {
+  margin-top: var(--sp-1);
+  color: var(--c-ink-muted);
+  font-size: var(--fs-sm);
+  overflow-wrap: anywhere;
+}
+
+.row__created {
+  margin-top: var(--sp-1);
+  color: var(--c-ink-muted);
+  font-size: var(--fs-xs);
+}
+
+.row__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--sp-2);
+}
+
+.row--cancelled .row__time,
+.row--cancelled .row__who,
+.row--cancelled .row__what {
+  opacity: 0.55;
+}
+
+.row--cancelled .row__time {
+  text-decoration: line-through;
+}
+
+.status {
+  justify-self: start;
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status--pending {
+  background: var(--c-accent-soft);
+  color: var(--c-ink);
+}
+
+.status--confirmed {
+  background: var(--c-success-soft);
+  color: var(--c-success);
+}
+
+.status--cancelled {
+  background: var(--c-bg-sunken);
+  color: var(--c-ink-muted);
+}
+
+@media (max-width: 52rem) {
+  .row {
+    grid-template-columns: 4rem minmax(0, 1fr) auto;
+    grid-template-areas:
+      'time who status'
+      'time what what'
+      'time actions actions';
+  }
+
+  .row__time {
+    grid-area: time;
+  }
+  .row__who {
+    grid-area: who;
+  }
+  .row__what {
+    grid-area: what;
+  }
+  .status {
+    grid-area: status;
+    justify-self: end;
+  }
+  .row__actions {
+    grid-area: actions;
+    justify-content: flex-start;
+  }
+}
+
+.row-skeleton {
+  height: 4.5rem;
+  margin-bottom: var(--sp-3);
+}
+
+.empty {
+  padding: var(--sp-8) 0;
+  border-top: 1px solid var(--c-ink);
+  max-width: 40rem;
+}
+
+.empty__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+}
+
+.empty__text {
+  margin-top: var(--sp-3);
+  color: var(--c-ink-muted);
+}
+
+@media (max-width: 30rem) {
+  .admin-header__title {
+    display: none;
+  }
+}

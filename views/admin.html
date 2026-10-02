@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+{{> head}}
+    <title>Записи — Kometa Dent</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <script type="module" src="/js/admin.js"></script>
+  </head>
+  <body class="admin">
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <header class="admin-header">
+      <div class="admin-container admin-header__inner">
+        <a class="brand" href="/">{{> brand-mark}}<span class="brand__name">Kometa Dent</span></a>
+        <span class="admin-header__title">Записи</span>
+        <button class="btn btn--ghost btn--small" type="button" data-logout hidden>Выйти</button>
+      </div>
+    </header>
+
+    <main id="main" class="admin-container admin-main">
+      <section class="login" data-login hidden aria-labelledby="login-title">
+        <h1 class="login__title" id="login-title">Вход для администратора</h1>
+        <p class="login__text">Здесь видны все записи с сайта. Токен доступа задаётся в переменной ADMIN_TOKEN на сервере.</p>
+        {{#if demo}}
+        <p class="notice">Демо-режим: токен — <code>demo</code>. Записи в демо-базе придуманы для примера.</p>
+        {{/if}}
+        <form class="login__form" data-login-form novalidate>
+          <div class="field">
+            <label class="field__label" for="token">Токен доступа</label>
+            <input class="input" id="token" name="token" type="password" autocomplete="current-password" required aria-describedby="token-error" />
+            <p class="field__error" id="token-error" data-login-error></p>
+          </div>
+          <button class="btn btn--primary btn--large" type="submit">Войти</button>
+        </form>
+      </section>
+
+      <section class="board-admin" data-app hidden aria-labelledby="list-title">
+        <div class="toolbar">
+          <h1 class="toolbar__title" id="list-title">Записи</h1>
+          <div class="segmented" role="group" aria-label="Какие записи показать">
+            <button class="segmented__item" type="button" data-filter="upcoming" aria-pressed="true">Предстоящие</button>
+            <button class="segmented__item" type="button" data-filter="all" aria-pressed="false">Все</button>
+          </div>
+          <p class="toolbar__summary" data-summary aria-live="polite"></p>
+          <button class="btn btn--secondary btn--small" type="button" data-refresh>Обновить</button>
+        </div>
+        <p class="form-alert" role="alert" data-app-alert></p>
+        <div class="appointments" data-list aria-busy="true"></div>
+      </section>
+    </main>
+
+    <script type="application/json" id="client-data">{{{clientData}}}</script>
+  </body>
+</html>
