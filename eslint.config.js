@@ -5,7 +5,7 @@ export default [
   { ignores: ['node_modules/', 'data/', 'coverage/'] },
   js.configs.recommended,
   {
-    files: ['**/*.js'],
+    files: ['**/*.js', '**/*.mjs'],
     languageOptions: {
       ecmaVersion: 2023,
       sourceType: 'module',
@@ -20,7 +20,7 @@ export default [
   },
   {
     // Browser code, and e2e tests whose page.evaluate() callbacks run in the browser.
-    files: ['public/js/**/*.js', 'e2e/**/*.js'],
+    files: ['public/js/**/*.js', 'e2e/**/*.js', 'scripts/**/*.mjs'],
     languageOptions: { globals: { ...globals.browser } },
   },
 ];
