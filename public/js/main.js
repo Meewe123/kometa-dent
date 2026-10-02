@@ -172,7 +172,7 @@ if (dateInput) {
       const data = await res.json();
 
       timeSelect.innerHTML = '<option value="">Выберите время</option>';
-      if (data.success) {
+      if (data.ok) {
         data.slots.forEach(slot => {
           const opt = document.createElement('option');
           opt.value = slot.time;
@@ -247,15 +247,15 @@ if (bookingForm) {
       });
       const result = await res.json();
 
-      if (result.success) {
-        showMsg(msg, 'success', result.message);
+      if (result.ok) {
+        showMsg(msg, 'success', 'Запись создана. Мы перезвоним, чтобы подтвердить время.');
         bookingForm.reset();
         if (dateInput) {
           const timeSelect = document.getElementById('bTime');
           timeSelect.innerHTML = '<option value="">Выберите время</option>';
         }
       } else {
-        showMsg(msg, 'error', result.message);
+        showMsg(msg, 'error', result.error === 'slot_taken' ? 'Это время уже заняли. Выберите другое.' : 'Проверьте поля формы.');
       }
     } catch {
       showMsg(msg, 'error', 'Ошибка соединения. Пожалуйста, позвоните нам напрямую.');

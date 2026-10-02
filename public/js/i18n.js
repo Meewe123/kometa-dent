@@ -267,11 +267,12 @@ function applyLang(lang) {
     const opts = t('services.opt');
     const current = serviceSelect.value;
     serviceSelect.innerHTML = `<option value="">${t('form.service.ph')}</option>`;
-    opts.forEach(opt => {
+    const ids = ['caries','implants','whitening','orthodontics','veneers','kids','extraction','hygiene','prosthetics','consultation','emergency'];
+    opts.forEach((opt, i) => {
       const o = document.createElement('option');
-      o.value = opt;
+      o.value = ids[i];
       o.textContent = opt;
-      if (opt === current) o.selected = true;
+      if (ids[i] === current) o.selected = true;
       serviceSelect.appendChild(o);
     });
   }
