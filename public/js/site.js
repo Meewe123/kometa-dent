@@ -28,7 +28,11 @@ if (header) {
 
 const menu = $('#menu');
 if (menu) {
-  $('[data-menu-open]')?.addEventListener('click', () => menu.showModal());
+  $('[data-menu-open]')?.addEventListener('click', () => {
+    menu.showModal();
+    document.documentElement.classList.add('menu-open');
+  });
+  menu.addEventListener('close', () => document.documentElement.classList.remove('menu-open'));
   $('[data-menu-close]', menu)?.addEventListener('click', () => menu.close());
   // Close before the browser follows an in-page link, so the scroll isn't blocked.
   $$('a', menu).forEach((link) => link.addEventListener('click', () => menu.close()));

@@ -218,7 +218,10 @@ h3 {
   text-wrap: balance;
 }
 
-p {
+/* Even line lengths only where text is long enough to need it: pretty is costly. */
+.prose p,
+.hero__lead,
+.section__note {
   text-wrap: pretty;
 }
 

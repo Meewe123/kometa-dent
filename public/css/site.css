@@ -169,7 +169,8 @@
   }
 }
 
-html:has(.menu[open]) {
+/* Set from site.js; a :has() selector on <html> would re-check styles on every DOM change. */
+html.menu-open {
   overflow: hidden;
 }
 
